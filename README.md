@@ -14,10 +14,10 @@ Constraints:
 Output Format:
 For each testcase, print the required output.
 
-Sample Input 0:
-1
-8 54
-7 98 56 43 45 23 12 8
+# Sample Input 0:
+# 1
+# 8 54
+# 7 98 56 43 45 23 12 8
 
-Sample Output 0:
-43 45 23 12
+# Sample Output 0:
+# 43 45 23 12
