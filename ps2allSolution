@@ -2,34 +2,39 @@ import java.io.*;
 import java.util.*;
 public class Difference {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int T = sc.nextInt();
-        for(int j =0 ; j < T ; j++){
-            int N = sc.nextInt();
-            int K = sc.nextInt();
-            int[] A = new int[N];
-            for(int i=0 ; i<N ; i++){
-                A[i] = sc.nextInt();
+        Scanner sc=new Scanner(System.in);
+            int t=sc.nextInt();
+            int n1=0,n2=0,n11,none1;    
+            for(int i=0;i<t;i++){
+                 int n=sc.nextInt();
+                 long k=sc.nextLong();
+                 long[] arr=new long[n];
+                 none1=0;
+                 for(int j=0;j<n;j++){
+                     arr[j]=sc.nextLong();
+                     if(arr[j]<k){
+                         String s=String.valueOf(arr[j]);
+                         if(s.length()>=2){
+                              n11=0;
+                           for(int k1=0;k1<s.length()-1;k1++) {
+                                n1=s.charAt(k1);
+                                n2=s.charAt(k1+1);
+                                if(n1-n2==1 || n2-n1==1) {
+                                    n11=n11+1;
+                                }
+                                else
+                                    break;
+                           }
+                               if(n11+1==s.length()){
+                                  System.out.print(s+" ");
+                                   none1=1;
+                               } 
+                         }
+                     }
+                 }
+                if(none1==0)
+                 System.out.print("-1");
+                 System.out.println();
             }
-            int count = -1;
-            for(int i=0 ; i<N ; i++){
-                if( A[i]>0 &&  A[i]<K ){
-                    int n = A[i];
-                    int res = 0;
-                    while( n > 0 ){
-                        int p = n % 10;
-                        n = n / 10;
-                        res = p - res;
-                    }
-                    if( res == -1 || res == 1 ){
-                        System.out.print( A[i] +" " );
-                        count = count + 1;
-                    }
-                }
-            }
-            if(count == -1){
-                System.out.println("-1");
-            }
-        }
     }
 }
